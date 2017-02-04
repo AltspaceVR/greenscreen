@@ -8,7 +8,7 @@ AFRAME.registerComponent('query-configurable', {
 			var parts = param.split('=');
 			var name = parts[0];
 			var val = parts[1];
-			this.el.setAttribute(name, val);
+			this.el.setAttribute(name, decodeURIComponent(val).replace(/,/g, ' ').replace('0x', '#'));
 		}.bind(this));
 	}
 });
